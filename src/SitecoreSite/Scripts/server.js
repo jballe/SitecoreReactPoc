@@ -9,11 +9,11 @@ const createData = (props) => {
         return {};
     }
 
-    if (typeof (props.data) != 'undefined') {
+    if (typeof (props.data) !== 'undefined') {
         res['data'] = props.data;
     }
 
-    if (typeof (props.placeholders) != 'undefined') {
+    if (typeof (props.placeholders) !== 'undefined') {
         res['placeholders'] = props.placeholders;
     }
 
