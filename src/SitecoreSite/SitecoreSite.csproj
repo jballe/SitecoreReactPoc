@@ -198,6 +198,8 @@
     <Content Include="App_Config\Include\Glass.Mapper.Sc.config" />
     <Content Include="App_Config\Include\ZLast\Components.config" />
     <Content Include="App_Config\ConnectionStrings.config" />
+    <Content Include="Content\client.min.js.map" />
+    <Content Include="Content\server.min.js.map" />
     <None Include="Dockerfile" />
     <None Include=".dockerignore">
       <DependentUpon>Dockerfile</DependentUpon>
