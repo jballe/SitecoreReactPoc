@@ -1,0 +1,17 @@
+{
+    "items": [
+        {
+            "itemType": "dummy",
+            "id": "a1",
+            "title": "Nice item",
+            "url": "http://localhost:8088/a1"
+        },
+        {
+            "itemType": "dummy",
+            "id": "a2",
+            "title": "Crazy item",
+            "url": "http://localhost:8088/a2"
+        }
+    ],
+    "total": 2
+}
