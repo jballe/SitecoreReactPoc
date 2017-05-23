@@ -1,5 +1,5 @@
 # Project specific ignores
-data/
+data/databases/
 
 
 ## Ignore Visual Studio temporary files, build results, and
