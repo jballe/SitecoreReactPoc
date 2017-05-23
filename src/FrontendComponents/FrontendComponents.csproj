@@ -9,6 +9,6 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="**\*" Exclude="*.csproj" />
+    <None Include="**\*" Exclude="*.csproj;*.min.js;*.min.js.map" />
   </ItemGroup>
 </Project>
