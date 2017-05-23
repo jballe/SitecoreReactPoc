@@ -19,15 +19,18 @@ export default class SimpleList extends React.Component {
         });
     }
 
-    renderItems(items) {
+    renderItems() {
         return this.state.items.map(itm => {
-            var viewName = null; // TODO: noget med setup :)
+            var viewName = this.props.setup && this.props.setup.views ?
+                this.props.setup.views[itm.itemType] || this.props.setup.views['common'] : null;
             var component = ViewsMap.get(itm.itemType, viewName);
             var props = {
                 data: itm,
                 key: itm.id
             };
-            return React.createElement(component, props);
+            return React.createElement('li', {},
+                React.createElement(component, props)
+            );
         });
     }
 
