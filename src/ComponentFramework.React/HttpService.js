@@ -1,4 +1,4 @@
-var Promise = require('es6-promise-promise');
+ import Promise from 'core-js/fn/promise';
 
 export class HttpService {
     makeRequest(method, url, dataType, data, withCredentials) {
