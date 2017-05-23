@@ -1,7 +1,7 @@
 ﻿import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Components from '../index';
+import * as Components from '../index';
 
 Array.prototype.forEach.call(document.querySelectorAll('[data-react]'), function (node) {
     var componentName = node.getAttribute('data-react');

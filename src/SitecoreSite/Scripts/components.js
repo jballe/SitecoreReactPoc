@@ -1,4 +1,4 @@
-﻿import FrontendComponents from '../../FrontendComponents';
+﻿import * as FrontendComponents from '../../FrontendComponents';
 
 var Components = [
     FrontendComponents
@@ -7,7 +7,7 @@ var Components = [
 var ComponentsFlattened = {};
 Components.map(cmp => {
     for (var key of Object.keys(cmp)) {
-        ComponentsFlattened[key] = Components[key];
+        ComponentsFlattened[key] = cmp[key];
     }
 });
 

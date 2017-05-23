@@ -1,38 +1,49 @@
 ﻿import React from 'react';
-import ReactDOMServer from 'react-dom/server'
 
 import Components from './components';
 
+const createData = (props) => {
+    var res = {};
 
-const decorate = (element) => (
+    if (typeof (props) === 'undefined') {
+        return {};
+    }
+
+    if (typeof (props.data) != 'undefined') {
+        res['data'] = props.data;
+    }
+
+    if (typeof (props.placeholders) != 'undefined') {
+        res['placeholders'] = props.placeholders;
+    }
+
+    return res;
+}
+
+// ReSharper disable once InconsistentNaming
+const decorate = (ElementComponent) => (
     {
-        element,
+        ElementComponent,
         renderToDOM(props, node) {
-            var el = React.createElement(element, { data: props.data, placeholders: props.placeholders });
-            ReactDOM.render(el, document.getElementById(node));
+            var div = document.createElement('div');
+            div.innerHTML = new ElementComponent(createData(props)).render();;
+            document.getElementById(node).appendChild(div);
         },
         renderToString(props) {
-            var el = React.createElement(element, { data: props.data, placeholders: props.placeholders });
-            return ReactDOMServer.renderToString(el);
+            return new ElementComponent(createData(props)).render();
         },
         renderToStaticMarkup(props) {
-            var el = React.createElement(element, { data: props.data, placeholders: props.placeholders });
-            return ReactDOMServer.renderToStaticMarkup(el);
+            return new ElementComponent(createData(props)).render();
         },
         getPlaceholders() {
-            if (typeof (element) === 'undefined' || typeof (element.placeholders) === 'undefined') {
+            if (typeof (ElementComponent) === 'undefined'
+                || typeof (ElementComponent.placeholders) === 'undefined') {
                 return '';
             }
 
-            return JSON.stringify(element.placeholders);
+            return JSON.stringify(ElementComponent.placeholders);
         }
     }
 );
 
-var ServersideComponents = {};
-
-for (var name in Components) {
-    ServersideComponents[name] = decorate(Conponents(name));
-}
-
-export default ServersideComponents;
+export const SimpleList = decorate(Components.SimpleList);

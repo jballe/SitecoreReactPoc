@@ -28,9 +28,9 @@ export default class SimpleList extends React.Component {
                 data: itm,
                 key: itm.id
             };
-            return React.createElement('li', {},
-                React.createElement(component, props)
-            );
+            return <li key={'li-' + itm.id}>
+                {React.createElement(component, props)}
+            </li>
         });
     }
 

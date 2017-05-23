@@ -6,8 +6,9 @@ module.exports = {
         path: path.resolve('site'),
         filename: 'bundle.min.js'
     },
+    devtool: 'source-map',
     module: {
-        loaders: [
+        rules: [
             { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
             { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ }
         ]
